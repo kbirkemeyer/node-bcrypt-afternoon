@@ -22,6 +22,6 @@ app.use(session({
     cookie: {maxAge: 1000 * 60 * 60 * 24}
 }));
 
-app.post('/auth/register', authCtrl.register)
+app.post('/auth/register', authCtrl.register);
 
 app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}, m'lady!`));
