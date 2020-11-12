@@ -31,5 +31,6 @@ app.get('/auth/logout', authCtrl.logout);
 app.get('/api/treasure/dragon', treasureCtrl.dragonTreasure);
 app.get('/api/treasure/user', middleware.usersOnly, treasureCtrl.getUserTreasure);
 app.post('/api/treasure/user', middleware.usersOnly, treasureCtrl.addUserTreasure);
+app.get('/api/treasure/all', middleware.usersOnly, middleware.adminOnly, treasureCtrl.getAllTreasure);
 
 app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}, m'lady!`));
