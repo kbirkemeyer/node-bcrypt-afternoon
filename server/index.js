@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const session = require('express-session');
 const massive = require('massive');
+const treasureCtrl = require('./controllers/treasureController');
 const authCtrl = require('./controllers/authController');
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 
@@ -25,5 +26,7 @@ app.use(session({
 app.post('/auth/register', authCtrl.register);
 app.post('/auth/login', authCtrl.login);
 app.get('/auth/logout', authCtrl.logout);
+
+app.get('/api/treasure/dragon', treasureCtrl.dragonTreasure);
 
 app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}, m'lady!`));
